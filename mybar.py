@@ -8,11 +8,15 @@ import music
 import window_title
 import music
 import clock
+import master_volume
+import song
 
 while True:
     parts = [
         color(rand_color(), 'F', temps.show_temps()),
-        align('r', color('#FF00FF', 'F', clock.show_time()))
+        color(rand_color(), 'F', master_volume.get_master_volume()),
+        color(rand_color(), 'F', song.get_song_stuff()),
+        align('r', color('#FF00FF', 'F', clock.show_time())),
     ]
 
 
@@ -22,4 +26,4 @@ while True:
 
     print(output)
     sys.stdout.flush()
-    os.system('sleep 1')
+    os.system('sleep 0.2')
