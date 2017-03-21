@@ -21,7 +21,10 @@ idx = 0
 def get_notification():
     global idx
     echo = subprocess.Popen(['echo', 'GET'], stdout = subprocess.PIPE)
-    notifications = subprocess.check_output(['nc', HOST, PORT], stdin=echo.stdout).decode('utf-8').splitlines()
+    try:
+        notifications = subprocess.check_output(['nc', HOST, PORT], stdin=echo.stdout).decode('utf-8').splitlines()
+    except:
+        return 'No connection'
     if not notifications:
         return 'No notification'
     if not idx < len(notifications):
