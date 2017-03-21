@@ -3,10 +3,7 @@ import sys
 import os
 from utils import color, align, rand_color
 import temps
-import tasks
-import music
 import window_title
-import music
 import clock
 import master_volume
 import song
@@ -28,4 +25,4 @@ while True:
 
     print(output)
     sys.stdout.flush()
-    os.system('sleep 0.2')
+    os.system('sleep 1')

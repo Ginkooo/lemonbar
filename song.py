@@ -1,7 +1,10 @@
 import subprocess
 
 def get_song_stuff():
-    song_name = subprocess.check_output(['mpc', '-p', '6001', 'current']).decode('utf-8')
+    try:
+        song_name = subprocess.check_output(['mpc', '-p', '6001', 'current'], stderr=subprocess.PIPE).decode('utf-8')
+    except Exception as e:
+        return 'mpd is off... | '
     song_details = subprocess.check_output(['mpc', '-p', '6001', '-f', 'current']).decode('utf-8').splitlines()
     vol_line = song_details[-1]
     duration_line = song_details[-2]
