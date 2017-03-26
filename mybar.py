@@ -8,12 +8,14 @@ import clock
 import master_volume
 import song
 import notifier
+import window_title
 
 while True:
     parts = [
         color(rand_color(), 'F', temps.show_temps()),
         color(rand_color(), 'F', master_volume.get_master_volume()),
         color(rand_color(), 'F', song.get_song_stuff()),
+        color('#ffffff', 'F', window_title.show_title()),
         color(rand_color(), 'F', notifier.get_notification()),
         align('r', color('#FF00FF', 'F', clock.show_time())),
     ]
