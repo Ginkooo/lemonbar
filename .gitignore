@@ -1,2 +1,4 @@
 *.swp
 __*
+*.swo
+*nohup*
